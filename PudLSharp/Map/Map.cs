@@ -17,7 +17,7 @@ namespace PudLSharp.Desktop.Map
 			this.name = name;
 			this.width = width;
 			this.height = height;
-			this.tilewidth = tilewidth; this.tileheight = tileheight
+			this.tilewidth = tilewidth; this.tileheight = tileheight;
         }
 
 		public void addRoom(Room r) { rooms.Add(r); }

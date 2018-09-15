@@ -5,14 +5,14 @@ namespace PudLSharp.Desktop.Entity
 {
     public class Entity
     {
-		public virtual bool hasCollision();
-        public virtual bool applyGravity();
-        public virtual bool applyFriction();
+		public virtual bool hasCollision() { return false; }
+		public virtual bool applyGravity() { return false; }
+		public virtual bool applyFriction() { return false; }
 
-		public virtual Vector2 position;
-		public virtual Vector2 velocity;
-		public virtual float width;
-		public virtual float height;
+		public Vector2 position;
+		public Vector2 velocity;
+		public float width;
+		public float height;
 
 		private Map.Map map;
 
@@ -32,11 +32,11 @@ namespace PudLSharp.Desktop.Entity
 
 			if (applyGravity())
 			{
-				velocity.Y += dvel(dt).Y;
+				velocity.Y += dvel().Y;
 			}
 
 			// integrate position
-			position = Vector2.Add(velocity, position);
+			position = Vector2.Add(Vector2.Multiply(velocity, dt), position);
 		}
 
         /* Master Collision Detection */
@@ -44,7 +44,7 @@ namespace PudLSharp.Desktop.Entity
 		public virtual void collision(int dt)
 		{
 			// determine the next position
-			Vector2 nextPos = new Vector2(position.X + dvel(dt).X, position.Y + dvel(dt).Y);
+			Vector2 nextPos = new Vector2(position.X + dvel().X, position.Y + dvel().Y);
 
             // get bounds for change in position
 			Vector2 topLeft = Vector2.Min(nextPos, position);

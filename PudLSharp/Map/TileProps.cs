@@ -20,8 +20,8 @@ namespace PudLSharp.Desktop.Map
 		public TileProps setHeight(int h) { this.height = h; return this; }
 		public TileProps setSize(int w, int h) { this.width = w; this.height = h; return this; }
 		public TileProps setSizeToTex() { this.width = tex.Width; this.height = tex.Height; return this; }
-		public TileProps setObstacle(bool obstacle) { this.obstacle = obstacle; }
-		public TileProps setKeyPassthrough(bool passthrough) { this.keyPassthrough = passthrough; }
+		public TileProps setObstacle(bool obstacle) { this.obstacle = obstacle; return this;  }
+		public TileProps setKeyPassthrough(bool passthrough) { this.keyPassthrough = passthrough; return this; }
 		public TileProps setSlideiness(int slideiness) { this.slideiness = slideiness; return this; }
 		public TileProps setTexture(Texture2D texture) { this.tex = texture; return this; }
 

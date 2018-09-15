@@ -19,10 +19,10 @@ namespace PudLSharp.Desktop.Map
 		}
 
 		public TileProps getProperties() => this.properties;
-		public int[] getTileCoords() => new int[] { Tile.worldCoordsToTile(x, properties.getWidth()), Tile.worldCoordsToTile(y, properties.getHeight()) };
-		public AABB getTileAABB() => new AABB(getTileCoords()[0], getTileCoords()[1], getTileCoords()[0] + 1, getTileCoords()[1] + 1);
+		public int[] getTileCoords(int tilesize) => new int[] { Tile.worldCoordsToTile(x, tilesize), Tile.worldCoordsToTile(y, tilesize) };
+		public AABB getTileAABB(int tilesize) => new AABB(getTileCoords(tilesize)[0], getTileCoords(tilesize)[1], getTileCoords(tilesize)[0] + 1, getTileCoords(tilesize)[1] + 1);
 
 		public static int tileCoordsToWorld(int tilepos, int tilesize) => tilepos * tilesize;
-		public static int worldCoordsToTile(int worldpos, int tilewidth) => (tilex % tilewidth == 0) ? worldpos / tilewidth : 0;
+		public static int worldCoordsToTile(int worldpos, int tilesize, bool roundup = false) => worldpos + (roundup ? 1 : -1) * (tilesize - (worldpos % tilesize));
     }
 }

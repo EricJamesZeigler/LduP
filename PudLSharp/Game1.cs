@@ -14,7 +14,7 @@ namespace PudLSharp.Desktop
     {
 		public const int WINDOWED_WIDTH  = 1024;
 		public const int WINDOWED_HEIGHT = 768;
-		public const float GRAVITATIONAL_ACCELLORATION = 9.8;
+		public const float GRAVITATIONAL_ACCELLORATION = 9.8F;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -43,9 +43,9 @@ namespace PudLSharp.Desktop
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			/* Register tile objects and their sprites/properties */
-			tileProps.Add(0, new TileProps().setTexture(null).setSize(0, 0).setGravityType(GravityType.PASSTHROUGH));
-			Texture2D tex1 = Content.Load<Texture2D>("sprite/wall");
-			tileProps.Add(1, new TileProps().setTexture(tex1).setSizeToTex().setGravityType(GravityType.WALL));
+			tileProps.Add(0, new TileProps().setTexture(null).setSize(0, 0).setObstacle(false));
+			Texture2D texWall = Content.Load<Texture2D>("sprite/wall");
+			tileProps.Add(1, new TileProps().setTexture(texWall).setSizeToTex().setObstacle(true));
 
 			/* Register each map from XML */
 			TmxMap CaveTMX = new TmxMap("Content/Maps/cave.tmx");
@@ -106,14 +106,15 @@ namespace PudLSharp.Desktop
 				{
 					// global tile id's are +1 from the sheet's id
 					int id = tile.Gid - 1;
-					if (id == 0) { room.setSpawn(tile.X * map.TileWidth, tile.Y * map.TileHeight) }
+					if (id == 0) { room.setSpawn(tile.X * map.TileWidth, tile.Y * map.TileHeight); }
 
 					Tile t = new Tile(id, tile.X * map.TileWidth, tile.Y * map.TileHeight, tileProps[id]);
 
 					room.addTile(t);
 				}
 
-				room.registerTiles();
+				//TODO: make this compatible with non-square tiles
+				room.registerTiles(map.TileWidth);
 
                 // if the layer's name is "spawn", set it as the spawn room
 				if (layer.Name.ToLowerInvariant() == "spawn") m.addSpawnRoom(room); else m.addRoom(room);
