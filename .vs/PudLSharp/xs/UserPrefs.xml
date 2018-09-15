@@ -9,7 +9,7 @@
       <File FileName="PudLSharp/Camera.cs" Line="22" Column="6" />
       <File FileName="../../gay/TiledSharp-0.15/TiledSharp/src/TiledCore.cs" Line="50" Column="1" />
       <File FileName="PudLSharp/Entity/Player.cs" Line="1" Column="1" />
-      <File FileName="PudLSharp/Entity/Entity.cs" Line="59" Column="13" />
+      <File FileName="PudLSharp/Entity/Entity.cs" Line="68" Column="14" />
       <File FileName="PudLSharp/Entity/AABB.cs" Line="38" Column="29" />
       <File FileName="PudLSharp/Map/Room.cs" Line="45" Column="74" />
       <File FileName="PudLSharp/Entity/Collision.cs" Line="10" Column="3" />

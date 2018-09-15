@@ -65,6 +65,7 @@ namespace PudLSharp.Desktop.Entity
         
 		public AABB getBounds() => new AABB(position.X, position.Y, position.X + width, position.Y + height);
 
+        //memes are people too
 		public virtual Vector2 dvel() => new Vector2(0, Game1.GRAVITATIONAL_ACCELLORATION);
         private Vector2 half_extents() => new Vector2(this.width/2, this.height/2);
     }
