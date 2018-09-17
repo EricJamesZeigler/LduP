@@ -55,6 +55,10 @@
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\AABB.cs" />
     <Compile Include="Entity\Collision.cs" />
+    <Compile Include="Entity\Character.cs" />
+    <Compile Include="Event\Event.cs" />
+    <Compile Include="Event\Entity\EntityEvent.cs" />
+    <Compile Include="Event\Entity\EntityMoveEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -63,7 +67,10 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="TiledSharp">
-      <HintPath>..\..\..\gay\TiledSharp-0.15\TiledSharp\bin\Debug\TiledSharp.dll</HintPath>
+      <HintPath>Libraries\TiledSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="TiledSharp">
+      <HintPath>Libraries\TiledSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -121,12 +128,18 @@
   <ItemGroup>
     <Folder Include="Map\" />
     <Folder Include="Entity\" />
+    <Folder Include="Libraries\" />
+    <Folder Include="Event\" />
+    <Folder Include="Event\Entity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Maps\cave.tmx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\tileset.tsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Libraries\TiledSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -24,8 +24,9 @@ namespace PudLSharp.Desktop.Entity
 			this.x2 += dx1; this.y2 += dy1;
 		}
 
-		public float width() => x2 - x1;
-		public float height() => y2 - y1;
+		public float[] origin() => new float[] { (x1+x2)/2, (y1+y2)/2 };
+		public float width() => Math.Abs(x2 - x1);
+		public float height() => Math.Abs(y2 - y1);
 		public int widthi() => Convert.ToInt32(width());
 		public int heighti() => Convert.ToInt32(height());
 		public bool usingTileCoords() => this.tileCoords;
@@ -36,6 +37,15 @@ namespace PudLSharp.Desktop.Entity
 			//float[] origin = { (x1+x2)/2, (y1+y2)/2 };
 			x1 -= h / 2; x2 += h / 2;
 			y1 -= v / 2; y2 += v / 2;
+		}
+
+		public bool overlaps(AABB bound)
+		{
+			if (this.x2 <= bound.x1) return false;
+			if (this.x1 >= bound.x2) return false;
+			if (this.y2 <= bound.y1) return false;
+			if (this.y1 >= bound.y2) return false;
+			return true;
 		}
     }
 }

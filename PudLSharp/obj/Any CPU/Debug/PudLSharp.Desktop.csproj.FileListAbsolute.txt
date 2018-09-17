@@ -16,10 +16,10 @@
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/MonoGame.Framework.dll
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/TiledSharp.dll
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/MonoGame.Framework.xml
-/home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/TiledSharp.pdb
 /home/char/Projects/PudLSharp/PudLSharp/obj/Any CPU/Debug/PudLSharp.Desktop.exe
 /home/char/Projects/PudLSharp/PudLSharp/obj/Any CPU/Debug/PudLSharp.Desktop.pdb
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/Content/Maps/cave.tmx
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/Content/sprite/player.xnb
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/Content/sprite/wall.xnb
 /home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/Content/tileset.tsx
+/home/char/Projects/PudLSharp/PudLSharp/bin/DesktopGL/Any CPU/Debug/Libraries/TiledSharp.dll

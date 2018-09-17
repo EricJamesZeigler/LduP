@@ -1,23 +1,26 @@
 ﻿using System;
+
+using Microsoft.Xna.Framework;
 namespace PudLSharp.Desktop
 {
     public class Camera
     {
-		public int width, height;
-		public int x, y;
+		public float width, height;
+		public float x, y;
 
-		public Camera(int width, int height, int x = 0, int y = 0)
+		public Camera(float width, float height, float x = 0, float y = 0)
         {
 			this.width = width; this.height = height;
 			this.x = x; this.y = y;
         }
 
-		public void setLoc(int x, int y) { this.x = x; this.y = y; }
-		public void setX(int x) { this.x = x; }
-		public void setY(int y) { this.y = y; }
+		public void setLoc(float x, float y) { this.x = x; this.y = y; }
+		public void setX(float x) { this.x = x; }
+		public void setY(float y) { this.y = y; }
 
         // Get location relative to camera
-		public int camX(int x) => (x - this.x);
-		public int camY(int y) => (y - this.y);
+		public float camx(float x) => (x - this.x);
+		public float camy(float y) => (y - this.y);
+		public Vector2 camvec(Vector2 v) => new Vector2(camx(v.X), camy(v.Y));
     }
 }

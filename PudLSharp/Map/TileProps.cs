@@ -9,7 +9,7 @@ namespace PudLSharp.Desktop.Map
 		//private GravityType gtype = GravityType.WALL;
 		private bool obstacle = true;
 		private bool keyPassthrough = false;
-        private int slideiness = 0;
+		private float friction = -1;
 		private Texture2D tex;
 
         public TileProps(){}
@@ -22,14 +22,14 @@ namespace PudLSharp.Desktop.Map
 		public TileProps setSizeToTex() { this.width = tex.Width; this.height = tex.Height; return this; }
 		public TileProps setObstacle(bool obstacle) { this.obstacle = obstacle; return this;  }
 		public TileProps setKeyPassthrough(bool passthrough) { this.keyPassthrough = passthrough; return this; }
-		public TileProps setSlideiness(int slideiness) { this.slideiness = slideiness; return this; }
+		public TileProps setFriction(float friction) { this.friction = friction; return this; }
 		public TileProps setTexture(Texture2D texture) { this.tex = texture; return this; }
 
 		public int getWidth() => this.width;
 		public int getHeight() => this.height;
 		public bool isObstacle() => this.obstacle;
 		public bool isPassthrough() => this.keyPassthrough;
-		public int getSlideiness() => this.slideiness;
+		public float getFriction() => this.friction;
 		public Texture2D getTexture() => this.tex;
 	}
 }

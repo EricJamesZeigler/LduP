@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{905B6B3B-33B1-49FB-B691-AE30F88CB4F5}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="PudLSharp Status">
     <Files>
-      <File FileName="PudLSharp/Program.cs" Line="16" Column="37" />
-      <File FileName="PudLSharp/Game1.cs" Line="116" Column="55" />
-      <File FileName="PudLSharp/Map/Tile.cs" Line="29" Column="1" />
-      <File FileName="PudLSharp/Map/TileProps.cs" Line="24" Column="105" />
-      <File FileName="PudLSharp/Map/Map.cs" Line="20" Column="61" />
-      <File FileName="PudLSharp/Camera.cs" Line="22" Column="6" />
-      <File FileName="../../gay/TiledSharp-0.15/TiledSharp/src/TiledCore.cs" Line="50" Column="1" />
+      <File FileName="PudLSharp/Program.cs" Line="12" Column="23" />
+      <File FileName="PudLSharp/Map/Tile.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Entity/Entity.cs" Line="64" Column="52" />
+      <File FileName="PudLSharp/Game1.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Entity/AABB.cs" Line="1" Column="1" />
       <File FileName="PudLSharp/Entity/Player.cs" Line="1" Column="1" />
-      <File FileName="PudLSharp/Entity/Entity.cs" Line="57" Column="33" />
-      <File FileName="PudLSharp/Entity/AABB.cs" Line="13" Column="17" />
-      <File FileName="PudLSharp/Map/Room.cs" Line="42" Column="19" />
-      <File FileName="PudLSharp/Entity/Collision.cs" Line="10" Column="3" />
+      <File FileName="PudLSharp/Entity/Collision.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Map/Map.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Map/Room.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Map/TileProps.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Camera.cs" Line="1" Column="1" />
+      <File FileName="PudLSharp/Entity/Character.cs" Line="1" Column="1" />
       <File FileName="PudLSharp Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

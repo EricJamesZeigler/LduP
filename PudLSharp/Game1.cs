@@ -5,6 +5,7 @@ using TiledSharp;
 using System;
 using System.Collections.Generic;
 using PudLSharp.Desktop.Map;
+using PudLSharp.Desktop.Entity;
 using System.Linq;
 
 namespace PudLSharp.Desktop
@@ -12,15 +13,22 @@ namespace PudLSharp.Desktop
 
     public class Game1 : Game
     {
+		public static Game1 instance;
+
 		public const int WINDOWED_WIDTH  = 1024;
 		public const int WINDOWED_HEIGHT = 768;
-		public const float GRAVITATIONAL_ACCELLORATION = 9.8F;
+		public const float GRAVITATIONAL_ACCELLORATION = 0.25F;
+
+		Player player;
+		Texture2D playertex;
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
               
 		static Map.Map Cave;
 		public static Dictionary<int, TileProps> tileProps = new Dictionary<int, TileProps>();
+
+		public static bool DOWN = false;
 
         public Game1()
         {
@@ -33,7 +41,7 @@ namespace PudLSharp.Desktop
         }
         
         protected override void Initialize()
-        {   
+		{   
             base.Initialize();
 		}
 
@@ -45,12 +53,15 @@ namespace PudLSharp.Desktop
 			/* Register tile objects and their sprites/properties */
 			tileProps.Add(0, new TileProps().setTexture(null).setSize(0, 0).setObstacle(false));
 			Texture2D texWall = Content.Load<Texture2D>("sprite/wall");
-			tileProps.Add(1, new TileProps().setTexture(texWall).setSizeToTex().setObstacle(true));
+			tileProps.Add(1, new TileProps().setTexture(texWall).setSizeToTex().setObstacle(true).setFriction(0.5F));
 
 			/* Register each map from XML */
 			TmxMap CaveTMX = new TmxMap("Content/Maps/cave.tmx");
-			Cave = mapFromTiled(CaveTMX, "Cave");
+			Cave = mapFromTiled(CaveTMX, "Cave");   
 
+			/* Register player */
+			player = new Player(Cave, new Vector2(36 * 32, 39 * 32), 32, 32);
+			playertex = Content.Load<Texture2D>("sprite/player");
         }
         
         protected override void UnloadContent()
@@ -61,9 +72,10 @@ namespace PudLSharp.Desktop
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-			
+			player.update(1, gameTime);
+			// TODO: Add your update logic here
 
-            // TODO: Add your update logic here
+			if (Keyboard.GetState().IsKeyDown(Keys.F1)) { player.setPos(new Vector2(36*32, 39*32)); }
 
             base.Update(gameTime);
         }
@@ -72,7 +84,37 @@ namespace PudLSharp.Desktop
         protected override void Draw(GameTime gameTime)
         {
 			GraphicsDevice.Clear(Color.Gray);
+
+			Room room = Cave.getSpawnRoom();
+			Camera c = new Camera(1280, 768, room.x+16, room.y+16);
+
+			spriteBatch.Begin();
+
+			foreach (Tile t in room.tiles)
+			{
+				Texture2D tex = t.getProperties().getTexture();
+
+				if (tex == null) continue;
+
+				spriteBatch.Draw(tex, new Vector2(c.camx(t.x), c.camx(t.y)), Color.White);
+			}
+
+			spriteBatch.Draw(playertex, c.camvec(player.position), Color.White);
+
+
+
+			/*Texture2D rect = new Texture2D(graphics.GraphicsDevice, player.ignore.widthi(), player.ignore.heighti());
+
+			Color[] data = new Color[player.ignore.widthi() * player.ignore.heighti()];
+            for (int i = 0; i < data.Length; ++i) data[i] = Color.White;
+            rect.SetData(data);
             
+			spriteBatch.Draw(rect, c.camvec(new Vector2(player.ignore.x1, player.ignore.y1)), Color.White);*/
+
+
+
+			spriteBatch.End();
+
             base.Draw(gameTime);
         }
 

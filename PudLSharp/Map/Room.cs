@@ -29,7 +29,7 @@ namespace PudLSharp.Desktop.Map
 		}
 
 		public void addTile(Tile t) { tiles.Add(t); }
-		public Tile getTileAt(int x, int y) => tiles.Find(tile => (tile.x == x && tile.y == y)); //TODO: make this safe
+		public Tile getTileAt(int x, int y) => tiles.Find(t => ((t.x == x) && (t.y == y))); //TODO: make this safe
 		public List<Tile> getTiles() => this.tiles;
 
 		public int[] getSpawn() => spawnpos;
